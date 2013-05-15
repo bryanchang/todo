@@ -10,6 +10,17 @@ describe TodoItemsController do
       expect(response.status).to eq 200
     end
 
+    it "loads all of the todo items into @todoitems" do
+      todo1 = TodoItem.create(:name => "Laundry")
+      todo2 = TodoItem.create(:name => "Dishes")
+      get :index
+      expect(assigns(:todo_items).size).to eq 2
+      expect(assigns(:todo_items)).to include todo1
+      expect(assigns(:todo_items)).to include todo1
+    end
+
   end
+
+
 
 end
