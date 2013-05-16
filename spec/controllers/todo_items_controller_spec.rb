@@ -21,6 +21,15 @@ describe TodoItemsController do
 
   end
 
+  describe "create" do
+    it "creates a new todo item" do
+      post :create, :todo_item => {:name => "Buy milk"}
+      item = TodoItem.last
+      expect(assigns(:todo_item)).to eq item
+    end
+
+  end
+
 
 
 end
