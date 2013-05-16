@@ -24,7 +24,7 @@ class TodoItemsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Todo item was successfully created.' }
         format.json { render json: @todo_item, status: :created, location: @todo_item }
       else
-        format.html { render action: "new" }
+        format.html { render action: "create" }
         format.json { render json: @todo_item.errors, status: :unprocessable_entity }
       end
     end
@@ -40,7 +40,7 @@ class TodoItemsController < ApplicationController
         format.html { redirect_to @todo_item, notice: 'Todo item was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "update" }
         format.json { render json: @todo_item.errors, status: :unprocessable_entity }
       end
     end
